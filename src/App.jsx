@@ -33,7 +33,7 @@ const App = () => {
 
       const result = () => {
             if (cityName) {
-                  const api = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=ee117346fde48a6f2a637ff090553adc`;
+                  const api = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=ee117346fde48a6f2a637ff090553adc`;
                   const getApiData = async (url) => {
                         try {
                               const response = await (await fetch(url)).json();
