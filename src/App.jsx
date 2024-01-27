@@ -12,7 +12,7 @@ const App = () => {
       // window.navigator.geolocation.getCurrentPosition(position => setCords({ lat: position.coords.latitude, lng: position.coords.longitude }));
 
       useEffect(() => {
-            const api = `http://api.openweathermap.org/data/2.5/weather?lat=${cords.lat}&lon=${cords.log}&APPID=ee117346fde48a6f2a637ff090553adc`;
+            const api = `http://api.openweathermap.org/data/2.5/weather?lat=${cords.lat}&lon=${cords.log}&APPID=${import.meta.env.VITE_REACT_WEATHER_API_KEY}`;
             const weather = async (url) => {
                   try {
                         const response = await (await fetch(url)).json();
