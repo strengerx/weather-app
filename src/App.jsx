@@ -57,12 +57,13 @@ const App = () => {
       }
 
       return (<>
-            <div className="w-full h-svh bg-slate-950 flex flex-wrap justify-evenly items-center">
+            <div className="w-full h-svh bg-slate-950 flex flex-wrap justify-center md:justify-evenly items-center md:flex-row-reverse">
+                  <ShowWeather {...weather} error={error} />
+
                   <form className="flex flex-wrap" onSubmit={onFormSubmit}>
                         <input value={cityName} onChange={e => setCityName(e.target.value)} className="p-2 border w-60 rounded-sm outline-none" type="text" placeholder="Search City" />
                         <button className="ml-2 capitalize py-2 px-4 rounded-sm border border-slate-100 bg-transparent text-slate-100" type="submit">search</button>
                   </form>
-                  <ShowWeather {...weather} error={error} />
             </div>
       </>)
 }
