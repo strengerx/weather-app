@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import ShowWeather from "./ShowWeather";
 
 const App = () => {
+
+      // console.log(process.env.REACT_WEATHER_API_KEY);
       const [cityName, setCityName] = useState('');
       const [weather, setWeather] = useState({});
       const [error, setError] = useState("");
@@ -10,17 +12,15 @@ const App = () => {
       // window.navigator.geolocation.getCurrentPosition(position => setCords({ lat: position.coords.latitude, lng: position.coords.longitude }));
 
       useEffect(() => {
-            const api = `http://api.openweathermap.org/data/2.5/weather?lat=${cords.lat}&lon=${cords.log}&APPID=ee117346fde48a6f2a637ff090553adc`;
+            const api = `http://api.openweathermap.org/data/2.5/weather?lat=${cords.lat}&lon=${cords.log}&APPID=${import.meta.env.VITE_REACT_WEATHER_API_KEY}`;
             const weather = async (url) => {
                   try {
                         const response = await (await fetch(url)).json();
                         if (response.cod === 200) {
                               setWeather(response)
                               setError("")
-                              console.log(response);
                         } else {
                               setError("Weather Report Not Found")
-                              console.log(response);
                         }
                   } catch (e) {
                         console.log("Error fetching weather " + e);
@@ -33,17 +33,15 @@ const App = () => {
 
       const result = () => {
             if (cityName) {
-                  const api = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=ee117346fde48a6f2a637ff090553adc`;
+                  const api = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=${import.meta.env.VITE_REACT_WEATHER_API_KEY}`;
                   const getApiData = async (url) => {
                         try {
                               const response = await (await fetch(url)).json();
                               if (response.cod === 200) {
                                     setWeather(response)
                                     setError("")
-                                    console.log(response);
                               } else {
                                     setError("Weather Report Not Found")
-                                    console.log(response);
                               }
                         } catch (e) {
                               console.log("Error fetching weather " + e);
