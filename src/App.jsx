@@ -57,7 +57,7 @@ const App = () => {
       }
 
       return (<>
-            <div className="w-full h-svh bg-slate-950 flex flex-wrap justify-center md:justify-evenly items-center md:flex-row-reverse">
+            <div className="w-full h-svh bg-slate-950 flex flex-wrap justify-center content-center gap-14 md:justify-evenly items-center md:flex-row-reverse">
                   <ShowWeather {...weather} error={error} />
 
                   <form className="flex flex-wrap" onSubmit={onFormSubmit}>
